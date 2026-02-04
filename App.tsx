@@ -1,28 +1,28 @@
 
 import React, { useState, useEffect } from 'react';
-import { 
-  CheckCircle2, 
-  ShieldCheck, 
+import {
+  CheckCircle2,
+  ShieldCheck,
   Lock,
   ExternalLink,
   ShieldAlert
 } from 'lucide-react';
 
-const OFFICIAL_URL = "https://impulsegram.shop/";
-const REDIRECT_TIME_MS = 3000;
+const OFFICIAL_URL = "https://lojaimpulsedigital.com.br";
+const REDIRECT_TIME_MS = 2000;
 
 const App: React.FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const startTime = Date.now();
-    
+
     const interval = setInterval(() => {
       const elapsed = Date.now() - startTime;
       const newProgress = Math.min((elapsed / REDIRECT_TIME_MS) * 100, 100);
-      
+
       setProgress(newProgress);
-      
+
       if (newProgress >= 100) {
         clearInterval(interval);
         window.location.href = OFFICIAL_URL;
@@ -36,7 +36,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6 font-sans">
       {/* Container Principal */}
       <div className="w-full max-w-md bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 p-8 md:p-10 text-center relative overflow-hidden">
-        
+
         {/* Glow de fundo sutil */}
         <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
         <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-green-50 rounded-full blur-3xl opacity-50"></div>
@@ -68,7 +68,7 @@ const App: React.FC = () => {
             <span>{Math.round(progress)}%</span>
           </div>
           <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
-            <div 
+            <div
               className="h-full bg-blue-600 transition-all duration-75 ease-linear rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
@@ -83,8 +83,8 @@ const App: React.FC = () => {
               Acesso Autorizado: ImpulseGram Official
             </span>
           </div>
-          
-          <a 
+
+          <a
             href={OFFICIAL_URL}
             className="text-blue-600 text-xs font-medium hover:underline flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity"
           >
@@ -105,7 +105,8 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes scaleIn {
           0% { transform: scale(0.5); opacity: 0; }
           100% { transform: scale(1); opacity: 1; }
